@@ -5,35 +5,30 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed = 10f;
-    public Rigidbody playerRigidbody;
+    private Rigidbody playerRigidbody;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        playerRigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.W))
-        {
-            playerRigidbody.AddForce(0,0,speed);
-        }
+        // -1 ~ +1
+        float inputX = Input.GetAxis("Horizontal");
+        float inputZ = Input.GetAxis("Vertical");
 
-        if(Input.GetKey(KeyCode.A))
-        {
-            playerRigidbody.AddForce(-speed,0,0);
-        }
+        // AddForce - depend on power
+        //playerRigidbody.AddForce(inputX * speed, 0, inputZ * speed);
+        
+        float fallSpeed = playerRigidbody.velocity.y;
 
-        if(Input.GetKey(KeyCode.S))
-        {
-            playerRigidbody.AddForce(0,0,-speed);
-        }
+        Vector3 velocity = new Vector3(inputX, 0, inputZ);
+        velocity = velocity * speed;
+        velocity.y = fallSpeed;
 
-        if(Input.GetKey(KeyCode.D))
-        {
-            playerRigidbody.AddForce(speed,0,0);
-        }
+        playerRigidbody.velocity = velocity;
     }
 }
