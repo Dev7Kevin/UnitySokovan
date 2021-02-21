@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
         float inputZ = Input.GetAxis("Vertical");
 
         // AddForce - depend on power
-        //playerRigidbody.AddForce(inputX * speed, 0, inputZ * speed);
+        // playerRigidbody.AddForce(inputX * speed, 0, inputZ * speed);
         
         float fallSpeed = playerRigidbody.velocity.y;
 

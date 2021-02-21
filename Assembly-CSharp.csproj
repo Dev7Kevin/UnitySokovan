@@ -36,7 +36,9 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\ItemBox.cs" />
      <Compile Include="Assets\Player.cs" />
+     <Compile Include="Assets\Rotator.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/2019.4.16f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
